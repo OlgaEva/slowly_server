@@ -23,7 +23,7 @@ require 'trollop'
 # tab of
 # {{ Google Cloud Console }} <{{ https://cloud.google.com/console }}>
 # Please ensure that you have enabled the YouTube Data API for your project.
-DEVELOPER_KEY = api_key
+DEVELOPER_KEY = Rails.application.credentials.api_key
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
