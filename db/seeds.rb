@@ -15,9 +15,14 @@
 #!/usr/bin/ruby
 
 require 'rubygems'
+# gem 'google-api-client', '>0.7'
 gem 'google-api-client', '>0.7'
-require 'google/api_client'
-require 'trollop'
+require 'google/apis'
+require 'google/apis/youtube_v3'
+# require 'google-api-client'
+# require 'youtube/googleapis/v3' (didn't work)
+# require 'googleapis/youtube/v3' (didn't work)
+require 'optimist'
 
 # Set DEVELOPER_KEY to the API key value from the APIs & auth > Credentials
 # tab of
@@ -28,7 +33,9 @@ YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
 def get_service
-  client = Google::APIClient.new(
+    # client = Google::APIClient.new(
+    # client = Google::Apis::YoutubeV3.new(
+        client = Google::APIClient.new(
     :key => DEVELOPER_KEY,
     :authorization => nil,
     :application_name => $PROGRAM_NAME,
@@ -40,7 +47,7 @@ def get_service
 end
 
 def main
-  opts = Trollop::options do
+  opts = Optimist::options do
     opt :q, 'Search term', :type => String, :default => 'Google'
     opt :max_results, 'Max results', :type => :int, :default => 25
   end

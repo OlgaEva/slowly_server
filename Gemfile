@@ -39,3 +39,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# https://rubygems.org/gems/google-api-client/versions/0.11.1
+gem 'google-api-client', '~> 0.38.0'
+
+# https://rubygems.org/gems/optimist/versions/3.0.0
+gem 'optimist', '~> 3.0'
